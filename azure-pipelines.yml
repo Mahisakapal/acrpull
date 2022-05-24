@@ -24,7 +24,6 @@ steps:
     scriptType: 'ps'
     scriptLocation: 'inlineScript'
     inlineScript: |
-      #==================
       $SOURCE_REG=Amardip
       $TARGET_REG=testamardip
       $repo=amardipython
