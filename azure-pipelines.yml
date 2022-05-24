@@ -16,7 +16,6 @@ steps:
 - task: CmdLine@2
   inputs:
     script: |
-      #==================
       $SOURCE_REG=Amardip
       $TARGET_REG=testamardip
       $repo=amardipython
