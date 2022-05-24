@@ -13,26 +13,16 @@ steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
 
-- task: CmdLine@2
+- task: AzureCLI@2
   inputs:
-    script: |
-      $SOURCE_REG=Amardip
-      $TARGET_REG=testamardip
-      $repo=amardipython
-      $tag=v2
-      $passwordOfSrcACR=fCb8Nx+i8SckkMD7DY6acfuIqoQ/=D8c
+    azureSubscription: 'myacrpull'
+    scriptType: 'ps'
+    scriptLocation: 'inlineScript'
+    inlineScript: |
+      $SOURCE_REG="Amardip"
+      $TARGET_REG="testamardip"
+      $repo="amardipnode"
+      $tag="v2"
+      $passwordOfSrcACR="fCb8Nx+i8SckkMD7DY6acfuIqoQ/=D8c"
       
-      
-      # Get list of source repositories
-      $REPO_LIST=$(az acr repository list --name $SOURCE_REG --username $SOURCE_REG --password $passwordOfSrcACR --output tsv)
-      
-      
-      # Enumerate tags and import to target registry
-      foreach ($repo in $REPO_LIST)
-      {
-      $TAGS_LIST=$(az acr repository show-tags --name $SOURCE_REG --username $SOURCE_REG --password $passwordOfSrcACR --repository $repo  --output tsv)
-      foreach ($tag in $TAGS_LIST){
-      echo "Importing $repo":"$tag"
-      az acr import --name $TARGET_REG --source $SOURCE_REG.azurecr.io/$repo":"$tag --username $SOURCE_REG --password $passwordOfSrcACR
-      }
-      }
+      az acr import --name testamardip --source amardip.azurecr.io/$repo":"$tag --username Amardip --password fCb8Nx+i8SckkMD7DY6acfuIqoQ/=D8c
