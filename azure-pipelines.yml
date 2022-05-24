@@ -18,3 +18,29 @@ steps:
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
 
+- task: AzureCLI@2
+  inputs:
+    azureSubscription: 'myacrpull'
+    scriptType: 'ps'
+    scriptLocation: 'inlineScript'
+    inlineScript: |
+      $SOURCE_REG=kfqaueacr1
+      $TARGET_REG=kfssqauekfsgacr
+      $repo=TakeUserInput
+      $tag=UserInput
+      $passwordOfSrcACR=hEwYDyZcTXYi+fbkTwAdPWzcDQtxvsMP
+      
+      
+      # Get list of source repositories
+      $REPO_LIST=$(az acr repository list --name $SOURCE_REG --username $SOURCE_REG --password $passwordOfSrcACR --output tsv)
+      
+      
+      # Enumerate tags and import to target registry
+      foreach ($repo in $REPO_LIST)
+      {
+      $TAGS_LIST=$(az acr repository show-tags --name $SOURCE_REG --username $SOURCE_REG --password $passwordOfSrcACR --repository $repo  --output tsv)
+      foreach ($tag in $TAGS_LIST){
+      echo "Importing $repo":"$tag"
+      az acr import --name $TARGET_REG --source $SOURCE_REG.azurecr.io/$repo":"$tag --username $SOURCE_REG --password $passwordOfSrcACR
+      }
+      }
