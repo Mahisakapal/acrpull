@@ -22,7 +22,7 @@ steps:
       $SOURCE_REG="Amardip"
       $TARGET_REG="testamardip"
       $repo="amardipnode"
-      $tag="v2"
+      $tag="v3"
       $passwordOfSrcACR="fCb8Nx+i8SckkMD7DY6acfuIqoQ/=D8c"
       
       az acr import --name testamardip --source amardip.azurecr.io/$repo":"$tag --username Amardip --password fCb8Nx+i8SckkMD7DY6acfuIqoQ/=D8c
