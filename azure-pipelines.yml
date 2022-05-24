@@ -34,6 +34,7 @@ steps:
             $TAGS_LIST=$(az acr repository show-tags --name testamardip --username testamardip --password Vgf2mazdXi54tUOqmj0UCeJ8F=zkxt4k --repository $repo  --output tsv)
             foreach ($tag in $TAGS_LIST){
             echo "you alreday have this image"
+      	  Exit 0 
                   }
             }
       	  
