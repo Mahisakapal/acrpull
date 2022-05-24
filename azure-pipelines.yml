@@ -13,17 +13,10 @@ steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
-
-- task: AzureCLI@2
+- task: CmdLine@2
   inputs:
-    azureSubscription: 'myacrpull'
-    scriptType: 'ps'
-    scriptLocation: 'inlineScript'
-    inlineScript: |
+    script: |
+      #==================
       $SOURCE_REG=Amardip
       $TARGET_REG=testamardip
       $repo=amardipython
