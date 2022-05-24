@@ -24,13 +24,7 @@ steps:
       $repo="amardipnode"
       $tag="v2"
       $passwordOfSrcACR="fCb8Nx+i8SckkMD7DY6acfuIqoQ/=D8c"
-      
-      
-                                                                                                                                                        ~                                                                                                                                                  ~                                                                                                                                                  ~                                                                                                                                                  ~               
-           
-      	
-      	
-       # Get list of source repositories
+      # Get list of source repositories
             $REPO_LIST=$(az acr repository list --name testamardip --username testamardip --password Vgf2mazdXi54tUOqmj0UCeJ8F=zkxt4k --output tsv)
             
             
