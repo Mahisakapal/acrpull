@@ -33,9 +33,10 @@ steps:
             {
             $TAGS_LIST=$(az acr repository show-tags --name testamardip --username testamardip --password Vgf2mazdXi54tUOqmj0UCeJ8F=zkxt4k --repository $repo  --output tsv)
             foreach ($tag in $TAGS_LIST){
-            echo "you alreday have this image"
+            echo "This image is alreday exist in "
       	  Exit 0 
                   }
             }
       	  
       	  az acr import --name testamardip --source amardip.azurecr.io/$repo":"$tag --username Amardip --password fCb8Nx+i8SckkMD7DY6acfuIqoQ/=D8c
+          echo "your image is now alvialiable "
