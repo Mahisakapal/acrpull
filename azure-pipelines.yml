@@ -21,8 +21,8 @@ steps:
     inlineScript: |
       $SOURCE_REG="Amardip"
       $TARGET_REG="testamardip"
-      $repo="amardipnode", "amardippythoon" 
-      $tag="v2"
+      $repo="amardipnode", "amardipu", "amardipy" 
+      $tag="latest"
       $passwordOfSrcACR="fCb8Nx+i8SckkMD7DY6acfuIqoQ/=D8c"
       
        # Get list of source repositories
