@@ -35,6 +35,7 @@ steps:
                   $TAGS_LIST=$(az acr repository show-tags --name testamardip --username testamardip --password /5mP9ne9JYg2ZXFZEoCZnkGwUV16n68Z --repository $r  --output tsv)
                       foreach ($tag in $TAGS_LIST){
                           echo "$r":"$tag This image is alvialiable "
+                           Exit 0 
       	                
                   }
       
