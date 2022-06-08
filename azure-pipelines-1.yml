@@ -6,8 +6,10 @@
 trigger:
 - Master
 
-pool: 
-  vmImage: 'mydockeragent'
+pool:
+  name: Default
+  demands:
+   - agent.name -equals mydockeragent
 
 steps:
 - script: echo Hello, world!
