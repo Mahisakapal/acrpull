@@ -6,8 +6,8 @@
 trigger:
 - Master
 
-pool:
-  vmImage: mydockeragent
+pool: 
+  vmImage: 'mydockeragent'
 
 steps:
 - script: echo Hello, world!
